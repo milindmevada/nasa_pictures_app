@@ -1,11 +1,14 @@
 package com.nasa.picturesapp.models
 
+import android.os.Parcelable
 import com.nasa.picturesapp.utils.DateAsStringSerializer
+import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.util.*
 
 @Serializable
+@Parcelize
 data class ImageModel(
     @Transient @SerialName("copyright") val copyRight: String = "",
     @SerialName("date") @Serializable(with = DateAsStringSerializer::class) val date: Date,
@@ -15,4 +18,4 @@ data class ImageModel(
     @SerialName("service_version") val serviceVersion: String,
     @SerialName("title") val title: String,
     @SerialName("url") val url: String,
-)
+) : Parcelable

@@ -12,7 +12,10 @@ import com.nasa.picturesapp.utils.toDisplayFormat
 class RVImageListingViewHolder(val binding: RowImageGridBinding) :
     RecyclerView.ViewHolder(binding.root)
 
-class RVImageListingAdapter(private val images: List<ImageModel>) :
+class RVImageListingAdapter(
+    private val images: List<ImageModel>,
+    private val onTap: (ImageModel) -> Unit
+) :
     RecyclerView.Adapter<RVImageListingViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVImageListingViewHolder {
         val binding =
@@ -26,6 +29,9 @@ class RVImageListingAdapter(private val images: List<ImageModel>) :
             .into(holder.binding.image)
         holder.binding.tvTitle.text = images[position].title
         holder.binding.tvDate.text = images[position].date.toDisplayFormat()
+        holder.binding.root.setOnClickListener {
+            onTap.invoke(images[position])
+        }
     }
 
     override fun getItemCount(): Int = images.size
