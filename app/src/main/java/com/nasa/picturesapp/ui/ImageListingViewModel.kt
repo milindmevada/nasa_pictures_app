@@ -28,7 +28,7 @@ class ImageListingViewModel(private val imagesRepository: ImagesRepository) : Vi
                 is Result.Error -> _pageState.postValue(PageState.Error)
                 is Result.Success -> {
                     result.data.let {
-                        _images.postValue(it)
+                        _images.postValue(it.sortedByDescending { it.date })
                         if (it.isEmpty()) {
                             _pageState.postValue(PageState.EmptyData)
                         } else {

@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.nasa.picturesapp.R
 import com.nasa.picturesapp.databinding.RowImageGridBinding
 import com.nasa.picturesapp.models.ImageModel
+import com.nasa.picturesapp.utils.toDisplayFormat
 
 class RVImageListingViewHolder(val binding: RowImageGridBinding) :
     RecyclerView.ViewHolder(binding.root)
@@ -24,6 +25,7 @@ class RVImageListingAdapter(private val images: List<ImageModel>) :
             .placeholder(R.mipmap.ic_launcher_round)
             .into(holder.binding.image)
         holder.binding.tvTitle.text = images[position].title
+        holder.binding.tvDate.text = images[position].date.toDisplayFormat()
     }
 
     override fun getItemCount(): Int = images.size
