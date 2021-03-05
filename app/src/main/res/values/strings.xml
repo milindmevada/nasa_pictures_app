@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NASA Pictures App</string>
+    <string name="err_empty_data">No Images Available</string>
+    <string name="err_image_fetch">Failed to fetch Images</string>
 </resources>
