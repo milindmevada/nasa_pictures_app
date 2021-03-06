@@ -10,7 +10,7 @@ import org.mockito.Mockito
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AssetImageService_Test {
+class AssetImageServiceTest {
 
     private val mockContext = Mockito.mock(Context::class.java)
     private val mockFileUtils = Mockito.mock(FileUtils::class.java)
