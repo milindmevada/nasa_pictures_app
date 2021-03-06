@@ -29,8 +29,8 @@ class ImageListingActivity : AppCompatActivity() {
                     binding.rvImageListing.visibility = View.VISIBLE
                     imagesListingViewModel.images.observe(this) {
                         binding.rvImageListing.layoutManager = GridLayoutManager(this, 2)
-                        binding.rvImageListing.adapter = RVImageListingAdapter(it) { _ ->
-                            ImageDetailsActivity.start(this)
+                        binding.rvImageListing.adapter = RVImageListingAdapter(it) { index ->
+                            ImageDetailsActivity.start(this, index)
                         }
                     }
                 }

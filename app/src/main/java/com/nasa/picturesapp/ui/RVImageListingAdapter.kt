@@ -14,7 +14,7 @@ class RVImageListingViewHolder(val binding: RowImageGridBinding) :
 
 class RVImageListingAdapter(
     private val images: List<ImageModel>,
-    private val onTap: (ImageModel) -> Unit
+    private val onTap: (Int) -> Unit
 ) :
     RecyclerView.Adapter<RVImageListingViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVImageListingViewHolder {
@@ -30,7 +30,7 @@ class RVImageListingAdapter(
         holder.binding.tvTitle.text = images[position].title
         holder.binding.tvDate.text = images[position].date.toDisplayFormat()
         holder.binding.root.setOnClickListener {
-            onTap.invoke(images[position])
+            onTap.invoke(position)
         }
     }
 
