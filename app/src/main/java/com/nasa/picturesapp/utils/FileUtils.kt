@@ -4,7 +4,7 @@ import android.content.Context
 import java.io.IOException
 import java.io.InputStream
 
-object FileUtils {
+class FileUtils {
     fun loadDataFromAsset(context: Context, fileName: String): String? {
         var json: String? = null
         json = try {

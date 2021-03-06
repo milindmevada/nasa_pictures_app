@@ -9,11 +9,12 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
-class AssetImageService(private val context: Context) : ImagesService {
+class AssetImageService(private val context: Context, private val fileUtils: FileUtils) :
+    ImagesService {
     override suspend fun getImages(): Result<List<ImageModel>> {
         try {
             return withContext(Dispatchers.IO) {
-                val imagesJsonString = FileUtils.loadDataFromAsset(context, "data.json")
+                val imagesJsonString = fileUtils.loadDataFromAsset(context, "data.json")
                     ?: return@withContext Result.Error(Exception("Images Not Found"))
                 val imageList = Json.decodeFromString<List<ImageModel>>(
                     imagesJsonString
