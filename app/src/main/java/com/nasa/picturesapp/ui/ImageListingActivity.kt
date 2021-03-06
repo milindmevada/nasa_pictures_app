@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.nasa.picturesapp.R
 import com.nasa.picturesapp.databinding.ActivityImageListingBinding
+import com.nasa.picturesapp.ui.imageDetails.ImageDetailsActivity
 import com.nasa.picturesapp.utils.PageState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,7 +29,9 @@ class ImageListingActivity : AppCompatActivity() {
                     binding.rvImageListing.visibility = View.VISIBLE
                     imagesListingViewModel.images.observe(this) {
                         binding.rvImageListing.layoutManager = GridLayoutManager(this, 2)
-                        binding.rvImageListing.adapter = RVImageListingAdapter(it)
+                        binding.rvImageListing.adapter = RVImageListingAdapter(it) { index ->
+                            ImageDetailsActivity.start(this, index)
+                        }
                     }
                 }
                 PageState.EmptyData -> {

@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NASAPicturesApp">
+        <activity android:name=".ui.imageDetails.ImageDetailsActivity"></activity>
         <activity android:name=".ui.ImageListingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
