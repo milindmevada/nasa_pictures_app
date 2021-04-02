@@ -4,6 +4,7 @@ import com.nasa.picturesapp.data.BookMarkImageService
 import com.nasa.picturesapp.data.ImagesService
 import com.nasa.picturesapp.models.ImageModel
 import com.nasa.picturesapp.utils.Result
+import java.util.*
 
 class ImagesRepository(
     private val imagesService: ImagesService,
@@ -19,5 +20,9 @@ class ImagesRepository(
                 Result.Success(imagesWithBookMarkStatus)
             }
         }
+    }
+
+    fun toggleBookMarkStatus(date: Date) {
+        bookMarkImageService.toggleBookMarkStatus(date)
     }
 }

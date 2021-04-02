@@ -40,6 +40,12 @@ class ImageListingViewModel(private val imagesRepository: ImagesRepository) : Vi
         }
     }
 
+    fun toggleImageBookMarkStatus(position: Int) {
+        _images.value?.get(position)?.let {
+            imagesRepository.toggleBookMarkStatus(it.date)
+        }
+    }
+
     init {
         fetchImages()
     }

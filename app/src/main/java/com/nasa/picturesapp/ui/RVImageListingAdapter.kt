@@ -14,7 +14,8 @@ class RVImageListingViewHolder(val binding: RowImageGridBinding) :
 
 class RVImageListingAdapter(
     private val images: List<ImageModel>,
-    private val onTap: (Int) -> Unit
+    private val onTap: (Int) -> Unit,
+    private val onTapBookMark: (Int) -> Unit
 ) :
     RecyclerView.Adapter<RVImageListingViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVImageListingViewHolder {
@@ -35,6 +36,9 @@ class RVImageListingAdapter(
         holder.binding.btnBookmark.setImageResource(
             if (images[position].isBookMarked) android.R.drawable.btn_star_big_on else android.R.drawable.btn_star_big_off
         )
+        holder.binding.btnBookmark.setOnClickListener {
+            onTapBookMark.invoke(position)
+        }
     }
 
 
