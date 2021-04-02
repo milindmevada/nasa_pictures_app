@@ -18,4 +18,5 @@ data class ImageModel(
     @SerialName("service_version") val serviceVersion: String,
     @SerialName("title") val title: String,
     @SerialName("url") val url: String,
+    val isBookMarked: Boolean = false,
 ) : Parcelable
