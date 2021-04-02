@@ -32,7 +32,11 @@ class RVImageListingAdapter(
         holder.binding.root.setOnClickListener {
             onTap.invoke(position)
         }
+        holder.binding.btnBookmark.setImageResource(
+            if (images[position].isBookMarked) android.R.drawable.btn_star_big_on else android.R.drawable.btn_star_big_off
+        )
     }
+
 
     override fun getItemCount(): Int = images.size
 }

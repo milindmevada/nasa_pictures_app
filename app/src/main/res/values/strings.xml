@@ -2,4 +2,6 @@
     <string name="app_name">NASA Pictures App</string>
     <string name="err_empty_data">No Images Available</string>
     <string name="err_image_fetch">Failed to fetch Images</string>
+    <string name="description_bookmark_icon">Indicated if image is bookmarked</string>
+    <string name="description_image_of_day">Nasa picture of the day</string>
 </resources>
